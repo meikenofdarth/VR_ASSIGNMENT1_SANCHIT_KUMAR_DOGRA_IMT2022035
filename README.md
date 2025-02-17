@@ -100,23 +100,42 @@ This will stitch the images together and display the final panorama.
 4. **Saving and Displaying**: Outputs the final panorama image.
 
 ---
+## Sample Inputs
+
+### Coin Detection Output
+
+This picture of 8 coins was taken from the internet.
+![Coin Detection Output](images/coins/coins1.jpeg)
+
+
+### Panorama Creation Output
+
+These 3 pictures of my work environment were taken using my phone's camera.
+![Panorama Input](images/panorama/panorama1.jpeg)
+![Panorama Input](images/panorama/panorama2.jpeg)
+![Panorama Input](images/panorama/panorama3.jpeg)
+
 
 ## Sample Outputs
 
 ### Coin Detection Output
 
-The detected coins are highlighted with green circles, and their centers are marked with red dots.
+The detected coins are highlighted with green circles, and their centers are marked with red dots. Only 7 coins have been detected out of the total 8 coins in the image, various methods were tried to improve the detection accuracy, but so far all of them have been unsuccesful. These have been mentioned in the Observations section.
+![Coin Detection Output](images/coins/coins1_output.png)
+
 
 ### Panorama Creation Output
 
 The final panorama image seamlessly combines multiple input images.
+![Panorama Output](images/panorama/panorama_output.jpeg)
 
 ---
 
 ## Observations
 
-- **Coin Detection**: Works well when coins are distinct and well-lit. Small objects or touching coins may reduce accuracy.
-- **Panorama Creation**: Success depends on image overlap and alignment. Large differences in lighting can cause artifacts.
+- **Coin Detection**: Works well when coins are distinct and well-lit. Small objects or touching coins may reduce accuracy. This was checked using pictures of other coins which have been included in the images/coins/other folder.
+- **Problems faced in coin detection**: 
+- **Panorama Creation**: Success depends on image overlap and alignment. Large differences in lighting can cause artifacts. This causes an unsatisfactory panorama to be formed. 
 
 ---
 
