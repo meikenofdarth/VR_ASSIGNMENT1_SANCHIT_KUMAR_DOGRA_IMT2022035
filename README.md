@@ -102,13 +102,13 @@ This will stitch the images together and display the final panorama.
 ---
 ## Sample Inputs
 
-### Coin Detection Output
+### Coin Detection Inputs
 
 This picture of 8 coins was taken from the internet.
 ![Coin Detection Output](images/coins/coins1.jpeg)
 
 
-### Panorama Creation Output
+### Panorama Creation Inputs
 
 These 3 pictures of my work environment were taken using my phone's camera.
 ![Panorama Input](images/panorama/panorama1.jpeg)
