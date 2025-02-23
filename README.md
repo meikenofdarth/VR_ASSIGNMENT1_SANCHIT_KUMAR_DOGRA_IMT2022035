@@ -33,7 +33,7 @@ Both tasks are implemented in Python using OpenCV and NumPy.
 
 Ensure that the following dependencies are installed:
 
-- Python 3.x
+- Python 3.9
 - OpenCV (`cv2`)
 - NumPy
 
@@ -156,15 +156,6 @@ The final panorama image seamlessly combines multiple input images.
 - **Possible Enhancements**:
   - Use **feature-based matching** for more robust stitching.
   - Try **exposure compensation** for better blending.
-
----
-
-## Dependencies
-
-- Python 3.x
-- OpenCV (`cv2`)
-- NumPy
-
 ---
 
 ## Conclusion
