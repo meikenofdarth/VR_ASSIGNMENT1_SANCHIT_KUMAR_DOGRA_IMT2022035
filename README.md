@@ -44,13 +44,13 @@ Ensure that the following dependencies are installed:
 To set up the environment, install the required packages:
 
 ```sh
-pip install opencv-python numpy
+pip install opencv-python numpy imutils
 ```
 
 If using Conda:
 
 ```sh
-conda install -c conda-forge opencv numpy
+conda install -c conda-forge opencv numpy imutils
 ```
 
 ---
@@ -84,29 +84,32 @@ This will stitch the images together and display the final panorama.
 ### Coin Detection Explanation
 
 1. **Loading the Image**: The image is loaded in grayscale mode for processing.
-2. **Gaussian Blur**: Applied to reduce noise and enhance object edges.
-3. **Adaptive Thresholding**: Used to differentiate coins from the background dynamically.
-4. **Morphological Operations**: Closing operation fills small gaps to improve contour detection.
-5. **Contour Detection**: Extracts potential coin-like shapes.
-6. **Circularity Check**: Filters out non-circular objects.
-7. **Drawing Circles**: Highlights detected coins with green circles and centers with red dots.
-8. **Displaying Results**: Outputs the number of detected coins and the final image.
+2. **Gaussian Blur**: A stronger Gaussian blur is applied to reduce noise and enhance object edges.
+3. **Adaptive Thresholding**: Dynamically segments the coins from the background.
+4. **Morphological Operations**: The closing operation is used to fill small gaps and improve contour detection.
+5. **Contour Detection**: Extracts potential coin-like shapes from the image.
+6. **Circularity Check**: Ensures only circular objects are considered as coins.
+7. **Filtering by Area**: Removes small noise and large unwanted objects based on area thresholds.
+8. **Drawing Circles**: Highlights detected coins with green circles and their centers with red dots.
+9. **Displaying Results**: Outputs the number of detected coins and saves the final image.
 
 ### Panorama Creation Explanation
 
 1. **Loading Images**: Reads the input images.
-2. **Stitching Process**: Uses OpenCV's `cv2.Stitcher_create()` to stitch images together.
-3. **Handling Errors**: Checks if stitching was successful.
-4. **Saving and Displaying**: Outputs the final panorama image.
+2. **Stitching Process**: Uses SIFT for detecting keypoints and computing descriptors.
+3. **Homography**: Finds the homography matrix using cv2.findHomography().
+4. **Warping**: Warps one image onto the other using cv2.warpPerspective()
+5. **Handling Errors**: Checks if stitching was successful and handles failures.
+6. **Saving and Displaying**: Outputs the final panorama image.
 
 ---
+
 ## Sample Inputs
 
 ### Coin Detection Inputs
 
 This picture of 8 coins was taken from the internet.
-![Coin Detection Output](images/coins/coins1.jpeg)
-
+![Coin Detection Input](images/coins/coins1.jpeg)
 
 ### Panorama Creation Inputs
 
@@ -114,14 +117,14 @@ These 2 pictures of my work environment were taken using my phone's camera.
 ![Panorama Input](images/panorama/panorama1.jpeg)
 ![Panorama Input](images/panorama/panorama2.jpeg)
 
+---
 
 ## Sample Outputs
 
 ### Coin Detection Output
 
-The detected coins are highlighted with green circles, and their centers are marked with red dots. Only 7 coins have been detected out of the total 8 coins in the image, various methods were tried to improve the detection accuracy, but so far all of them have been unsuccesful. These have been mentioned in the Observations section.
-![Coin Detection Output](images/coins/coins1_output.png)
-
+The detected coins are highlighted with green circles, and their centers are marked with red dots. The latest method improves upon previous results, now correctly detecting **7 out of 8 coins**. Further improvements are suggested in the Observations section.
+![Coin Detection Output](images/coins/output/detected_coins.png)
 
 ### Panorama Creation Output
 
@@ -132,9 +135,27 @@ The final panorama image seamlessly combines multiple input images.
 
 ## Observations
 
-- **Coin Detection**: Works well when coins are distinct and well-lit. Small objects or touching coins may reduce accuracy. This was checked using pictures of other coins which have been included in the images/coins/other folder.
-- **Problems faced in coin detection**: 
-- **Panorama Creation**: Success depends on image overlap and alignment. Large differences in lighting can cause artifacts. This causes an unsatisfactory panorama to be formed. 
+### Coin Detection
+
+- **Performance**: Works well when coins are distinct and well-lit.
+- **Challenges**:
+  - **Overlapping Coins**: Causes merging of contours, leading to undercounting.
+  - **Poor Lighting Conditions**: Shadows or reflections can interfere with detection.
+  - **Similar Background**: Coins with similar colors to the background may not be segmented well.
+- **Solutions Tried**:
+  - **Increased Blur Strength**: Helps smooth edges but can reduce fine details.
+  - **Adaptive Thresholding**: Improved detection but still misses some coins.
+  - **Morphological Closing**: Helped reduce gaps but introduced some unwanted noise.
+
+### Panorama Creation
+
+- **Performance**: Works well with images having good overlap.
+- **Challenges**:
+  - **Lighting Differences**: Affects blending quality.
+  - **Non-Overlapping Areas**: Causes stitching errors or black patches.
+- **Possible Enhancements**:
+  - Use **feature-based matching** for more robust stitching.
+  - Try **exposure compensation** for better blending.
 
 ---
 
