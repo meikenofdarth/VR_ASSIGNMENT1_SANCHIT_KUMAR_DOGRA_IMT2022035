@@ -95,8 +95,8 @@ def stitch(images, ratio=0.75, re_proj=5.0):
 
 # Define image file paths
 image_paths = [
-    "/Users/sanchitkumardogra/kaam/clg/SEM 6/vr/VR_ASSIGNMENT1/images/panorama/panorama1.jpeg",
-    "/Users/sanchitkumardogra/kaam/clg/SEM 6/vr/VR_ASSIGNMENT1/images/panorama/panorama2.jpeg"
+    "/Users/sanchitkumardogra/kaam/clg/SEM 6/vr/VR_ASSIGNMENT1/images/panorama/panorama1.jpg",
+    "/Users/sanchitkumardogra/kaam/clg/SEM 6/vr/VR_ASSIGNMENT1/images/panorama/panorama2.jpg"
 ]
 
 # Load images from disk
