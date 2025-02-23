@@ -110,10 +110,9 @@ This picture of 8 coins was taken from the internet.
 
 ### Panorama Creation Inputs
 
-These 3 pictures of my work environment were taken using my phone's camera.
+These 2 pictures of my work environment were taken using my phone's camera.
 ![Panorama Input](images/panorama/panorama1.jpeg)
 ![Panorama Input](images/panorama/panorama2.jpeg)
-![Panorama Input](images/panorama/panorama3.jpeg)
 
 
 ## Sample Outputs
