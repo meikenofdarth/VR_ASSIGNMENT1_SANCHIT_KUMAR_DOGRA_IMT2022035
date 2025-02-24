@@ -1,5 +1,5 @@
+# Only use this repo, to download the images too for the assignment, do not use the zip submitted on lms. Zip size exceeded 20 mb hence had to remove all images from the submission on LMS
 # VR Assignment 1: Coin Detection and Panorama Creation
-
 ## Table of Contents
 
 - [Overview](#overview)
